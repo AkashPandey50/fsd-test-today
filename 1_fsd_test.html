@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Quiz</title>
+    <style>
+        .box {
+            margin: 50px;
+            border: 1px solid;
+            padding: 10px;
+        }
+
+        .inline {
+            color: cornflowerblue;
+            background-color: burlywood;
+            padding: 10px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .prev-btn, .next-btn, .submit-btn {
+            padding: 5px;
+            color: white;
+            border: 0;
+            cursor: pointer;
+        }
+
+        .prev-btn {
+            background-color: cornflowerblue;
+        }
+
+        .next-btn {
+            background-color: rgb(46, 230, 46);
+        }
+
+        .submit-btn {
+            background-color: orange;
+        }
+
+        .quiz-page {
+            display: none;
+        }
+
+        .quiz-page.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="inline">
+            <h2>Online Quiz</h2>
+        </div>
+        <div id="page1" class="quiz-page active">
+            <p>What is the capital of France?</p>
+            <form>
+                <div class="options">
+                    <label><input type="radio" name="question1" value="Berlin"> Berlin</label>
+                    <label><input type="radio" name="question1" value="Madrid"> Madrid</label>
+                    <label><input type="radio" name="question1" value="Paris"> Paris</label>
+                    <label><input type="radio" name="question1" value="Rome"> Rome</label>
+                </div>
+                <div class="buttons">
+                    <button type="button" class="next-btn" onclick="showPage(2)">Next</button>
+                </div>
+            </form>
+        </div>
+        <div id="page2" class="quiz-page">
+            <p>Which planet is known as the Red Planet?</p>
+            <form>
+                <div class="options">
+                    <label><input type="radio" name="question2" value="Earth"> Earth</label>
+                    <label><input type="radio" name="question2" value="Mars"> Mars</label>
+                    <label><input type="radio" name="question2" value="Jupiter"> Jupiter</label>
+                    <label><input type="radio" name="question2" value="Saturn"> Saturn</label>
+                </div>
+                <div class="buttons">
+                    <button type="button" class="prev-btn" onclick="showPage(1)">Previous</button>
+                    <button type="button" class="next-btn" onclick="showPage(3)">Next</button>
+                </div>
+            </form>
+        </div>
+        <div id="page3" class="quiz-page">
+            <p>What is the largest ocean on Earth?</p>
+            <form>
+                <div class="options">
+                    <label><input type="radio" name="question3" value="Atlantic"> Atlantic</label>
+                    <label><input type="radio" name="question3" value="Indian"> Indian</label>
+                    <label><input type="radio" name="question3" value="Arctic"> Arctic</label>
+                    <label><input type="radio" name="question3" value="Pacific"> Pacific</label>
+                </div>
+                <div class="buttons">
+                    <button type="button" class="prev-btn" onclick="showPage(2)">Previous</button>
+                    <button type="submit" class="submit-btn">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function showPage(pageNumber) {
+            var pages = document.querySelectorAll('.quiz-page');
+            pages.forEach(function (page) {
+                page.classList.remove('active');
+            });
+            document.getElementById('page' + pageNumber).classList.add('active');
+        }
+    </script>
+</body>
+
+</html>
